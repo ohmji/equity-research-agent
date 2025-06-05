@@ -19,10 +19,10 @@ This project is built using LangGraph's `StateGraph` with the following node pip
 
 ```
 grounding → financial_analyst →┐
-           news_scanner       │
-           industry_analyst   ├─→ collector → curator → enricher → briefing → editor
-           company_analyst    │
-                              ┘
+           news_scanner        │
+           industry_analyst    ├─→ collector → curator → enricher → briefing → editor
+           company_analyst     │
+                               ┘
 ```
 
 Each node represents a specialized agent:
