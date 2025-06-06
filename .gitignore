@@ -19,6 +19,7 @@ node_modules/
 
 # LangGraph
 .langgraph/
+.langgraph_api/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

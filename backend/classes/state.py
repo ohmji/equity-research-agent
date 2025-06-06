@@ -1,14 +1,14 @@
-from typing import TypedDict, NotRequired, Required, Dict, List, Any
+from typing import TypedDict, Optional, Dict, List, Any
 from backend.services.websocket_manager import WebSocketManager
 
 #Define the input state
 class InputState(TypedDict, total=False):
-    company: Required[str]
-    company_url: NotRequired[str]
-    hq_location: NotRequired[str]
-    industry: NotRequired[str]
-    websocket_manager: NotRequired[WebSocketManager]
-    job_id: NotRequired[str]
+    company: str
+    company_url: Optional[str]
+    hq_location: Optional[str]
+    industry: Optional[str]
+    websocket_manager: Optional[WebSocketManager]
+    job_id: Optional[str]
 
 class ResearchState(InputState):
     site_scrape: Dict[str, Any]
