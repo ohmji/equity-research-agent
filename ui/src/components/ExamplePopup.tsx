@@ -89,9 +89,9 @@ const ExamplePopup: React.FC<ExamplePopupProps> = ({
   return (
     <div 
       ref={exampleRef}
-      className={`absolute -top-14 left-8 ${glassStyle.card} bg-white/90 shadow-lg border-blue-200 cursor-pointer z-10 
+      className={`absolute -top-14 left-8 ${glassStyle.card} bg-gray-800/80 shadow-lg border-blue-200 cursor-pointer z-10 
                  flex items-center px-3 py-2 space-x-2 transform transition-all duration-300 
-                 hover:shadow-xl hover:bg-white/95 hover:-translate-y-1 hover:border-blue-300 group`}
+                 hover:shadow-xl hover:bg-gray-800/90 hover:-translate-y-1 hover:border-blue-300 group`}
       onClick={() => onExampleSelect(EXAMPLE_COMPANIES[selectedExample])}
       style={{
         borderTopLeftRadius: '12px',
@@ -102,7 +102,7 @@ const ExamplePopup: React.FC<ExamplePopupProps> = ({
     >
       <Sparkles className="h-4 w-4 text-blue-500 group-hover:text-blue-600 animate-pulse group-hover:animate-none group-hover:scale-110 transition-all" />
       <div>
-        <span className="text-sm font-medium text-gray-700 group-hover:text-gray-800 transition-colors">Try an example: </span>
+        <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">Try an example: </span>
         <span 
           className={`text-sm font-bold text-blue-600 group-hover:text-blue-700 transition-all inline-block
             ${isNameAnimating ? 'opacity-0 transform -translate-y-3 scale-95' : 'opacity-100 transform translate-y-0 scale-100'}`}

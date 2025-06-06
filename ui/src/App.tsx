@@ -273,7 +273,7 @@ function App() {
     
     setIsGeneratingPdf(true);
     try {
-      console.log("Generating PDF with company name:", originalCompanyName);
+      console.log("Generating PDF with  name:", originalCompanyName);
       const response = await fetch(`${API_URL}/generate-pdf`, {
         method: 'POST',
         headers: {
@@ -417,7 +417,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-gray-50 to-white p-8 relative">
+    <div className="min-h-screen text-white p-8 relative bg-[#0a0a0a]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(70,139,255,0.35)_1px,transparent_0)] bg-[length:24px_24px] bg-center"></div>
       <div className="max-w-5xl mx-auto space-y-8 relative">
         {/* Header Component */}

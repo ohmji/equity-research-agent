@@ -20,7 +20,7 @@ const ResearchStatus: React.FC<ResearchStatusProps> = ({
   return (
     <div 
       ref={statusRef} 
-      className={`${glassCardStyle} ${fadeInAnimation} ${isResetting ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'} bg-white/80 backdrop-blur-sm border-gray-200 font-['DM_Sans']`}
+      className={`${glassCardStyle} ${fadeInAnimation} ${isResetting ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'} bg-gray-800/60 backdrop-blur-sm border-gray-600 font-['DM_Sans']`}
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
@@ -47,8 +47,8 @@ const ResearchStatus: React.FC<ResearchStatusProps> = ({
           )}
         </div>
         <div className="flex-1">
-          <p className="font-medium text-gray-900/90">{status.step}</p>
-          <p className="text-sm text-gray-600 whitespace-pre-wrap">
+          <p className="font-medium text-white/90">{status.step}</p>
+          <p className="text-sm text-gray-300 whitespace-pre-wrap">
             {error || status.message}
           </p>
         </div>

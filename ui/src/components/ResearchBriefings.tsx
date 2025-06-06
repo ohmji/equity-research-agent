@@ -21,8 +21,8 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
   onToggleExpand,
   isResetting
 }) => {
-  const glassStyle = "backdrop-filter backdrop-blur-lg bg-white/80 border border-gray-200 shadow-xl";
-  const cardGlassStyle = "backdrop-filter backdrop-blur-lg bg-white/80 shadow-sm";
+  const glassStyle = "backdrop-filter backdrop-blur-lg bg-black/60 border border-gray-700 shadow-xl";
+  const cardGlassStyle = "backdrop-filter backdrop-blur-lg bg-gray-800/60 shadow-sm";
 
   return (
     <div 
@@ -34,10 +34,10 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
         className="flex items-center justify-between cursor-pointer"
         onClick={onToggleExpand}
       >
-        <h2 className="text-xl font-semibold text-gray-900">
+        <h2 className="text-xl font-semibold text-white">
           Research Briefings
         </h2>
-        <button className="text-gray-600 hover:text-gray-900 transition-colors">
+        <button className="text-gray-300 hover:text-white transition-colors">
           {isExpanded ? (
             <ChevronUp className="h-6 w-6" />
           ) : (
@@ -56,7 +56,7 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
               className={`${cardGlassStyle} rounded-lg p-4 transition-all duration-500 ease-in-out relative ${
                 briefingStatus[category as keyof BriefingStatus] 
                   ? 'border border-[#468BFF] bg-gradient-to-br from-[#468BFF]/5 to-[#468BFF]/10 shadow-md' 
-                  : 'border border-gray-200 bg-white/80 hover:border-gray-300 hover:shadow-sm'
+                  : 'border border-gray-600 bg-gray-800/60 hover:border-gray-400 hover:shadow-sm'
               } backdrop-blur-sm group`}
             >
               {/* Background decoration element (only visible when active) */}
@@ -71,12 +71,12 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
                 <h3 className={`text-sm font-medium capitalize transition-all duration-500 ${
                   briefingStatus[category as keyof BriefingStatus]
                     ? 'text-[#468BFF]'
-                    : 'text-gray-700 group-hover:text-gray-900'
+                    : 'text-gray-200 group-hover:text-white'
                 }`}>{category}</h3>
                 {briefingStatus[category as keyof BriefingStatus] ? (
                   <CheckCircle2 className="h-4 w-4 text-[#468BFF] transition-all duration-300" />
                 ) : (
-                  <div className="h-4 w-4 rounded-full border border-gray-200 group-hover:border-gray-300 transition-all duration-300"></div>
+                  <div className="h-4 w-4 rounded-full border border-gray-600 group-hover:border-gray-400 transition-all duration-300"></div>
                 )}
               </div>
             </div>
@@ -85,7 +85,7 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
       </div>
 
       {!isExpanded && (
-        <div className="mt-2 text-sm text-gray-600">
+        <div className="mt-2 text-sm text-gray-300">
           {Object.values(briefingStatus).filter(Boolean).length} of {Object.keys(briefingStatus).length} briefings completed
         </div>
       )}

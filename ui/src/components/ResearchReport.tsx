@@ -79,7 +79,7 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
             remarkPlugins={[remarkGfm]}
             components={{
               div: ({node, ...props}) => (
-                <div className="space-y-4 text-gray-800" {...props} />
+                <div className="space-y-4 text-gray-100" {...props} />
               ),
               h1: ({node, children, ...props}) => {
                 const text = String(children);
@@ -88,7 +88,7 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                 return (
                   <div>
                     <h1 
-                      className={`font-bold text-gray-900 break-words whitespace-pre-wrap ${isFirstH1 ? 'text-5xl mb-10 mt-4 max-w-[calc(100%-8rem)]' : 'text-3xl mb-6'}`} 
+                      className={`font-bold text-white break-words whitespace-pre-wrap ${isFirstH1 ? 'text-5xl mb-10 mt-4 max-w-[calc(100%-8rem)]' : 'text-3xl mb-6'}`} 
                       {...props} 
                     >
                       {children}
@@ -100,10 +100,10 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                 );
               },
               h2: ({node, ...props}) => (
-                <h2 className="text-3xl font-bold text-gray-900 first:mt-2 mt-8 mb-4" {...props} />
+                <h2 className="text-3xl font-bold text-white first:mt-2 mt-8 mb-4" {...props} />
               ),
               h3: ({node, ...props}) => (
-                <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3" {...props} />
+                <h3 className="text-xl font-semibold text-white mt-6 mb-3" {...props} />
               ),
               p: ({node, children, ...props}) => {
                 const text = String(children);
@@ -115,7 +115,7 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                 
                 if (isSubsectionHeader) {
                   return (
-                    <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">
+                    <h3 className="text-xl font-semibold text-white mt-6 mb-3">
                       {text.endsWith(':') ? text.slice(0, -1) : text}
                     </h3>
                   );
@@ -125,8 +125,8 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                 if (isBulletLabel) {
                   const [label, content] = text.split(':');
                   return (
-                    <div className="text-gray-800 my-2">
-                      <span className="font-semibold text-gray-900">
+                    <div className="text-gray-100 my-2">
+                      <span className="font-semibold text-white">
                         {label.replace('•', '').trim()}:
                       </span>
                       {content}
@@ -138,7 +138,7 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                 if (urlRegex.test(text)) {
                   const parts = text.split(urlRegex);
                   return (
-                    <p className="text-gray-800 my-2" {...props}>
+                    <p className="text-gray-100 my-2" {...props}>
                       {parts.map((part, i) => 
                         urlRegex.test(part) ? (
                           <a 
@@ -156,13 +156,13 @@ const ResearchReport: React.FC<ResearchReportProps> = ({
                   );
                 }
                 
-                return <p className="text-gray-800 my-2" {...props}>{children}</p>;
+                return <p className="text-gray-100 my-2" {...props}>{children}</p>;
               },
               ul: ({node, ...props}) => (
-                <ul className="text-gray-800 space-y-1 list-disc pl-6" {...props} />
+                <ul className="text-gray-100 space-y-1 list-disc pl-6" {...props} />
               ),
               li: ({node, ...props}) => (
-                <li className="text-gray-800" {...props} />
+                <li className="text-gray-100" {...props} />
               ),
               a: ({node, href, ...props}) => (
                 <a 

@@ -21,10 +21,10 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
         className="flex items-center justify-between cursor-pointer"
         onClick={onToggleExpand}
       >
-        <h2 className="text-xl font-semibold text-gray-900">
+        <h2 className="text-xl font-semibold text-white">
           Generated Research Queries
         </h2>
-        <button className="text-gray-600 hover:text-gray-900 transition-colors">
+        <button className="text-gray-300 hover:text-white transition-colors">
           {isExpanded ? (
             <ChevronUp className="h-6 w-6" />
           ) : (
@@ -39,7 +39,7 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
         <div className="grid grid-cols-2 gap-4">
           {['company', 'industry', 'financial', 'news'].map((category) => (
             <div key={category} className={`${glassStyle} rounded-xl p-3`}>
-              <h3 className="text-base font-medium text-gray-900 mb-3 capitalize">
+              <h3 className="text-base font-medium text-white mb-3 capitalize">
                 {category.charAt(0).toUpperCase() + category.slice(1)} Queries
               </h3>
               <div className="space-y-2">
@@ -47,8 +47,8 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
                 {Object.entries(streamingQueries)
                   .filter(([key]) => key.startsWith(category))
                   .map(([key, query]) => (
-                    <div key={key} className="backdrop-filter backdrop-blur-lg bg-white/80 border border-[#468BFF]/30 rounded-lg p-2">
-                      <span className="text-gray-600">{query.text}</span>
+                    <div key={key} className="backdrop-filter backdrop-blur-lg bg-gray-800/60 border border-[#468BFF]/30 rounded-lg p-2">
+                      <span className="text-gray-300">{query.text}</span>
                       <span className="animate-pulse ml-1 text-[#8FBCFA]">|</span>
                     </div>
                   ))}
@@ -56,8 +56,8 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
                 {queries
                   .filter((q) => q.category.startsWith(category))
                   .map((query, idx) => (
-                    <div key={idx} className="backdrop-filter backdrop-blur-lg bg-white/80 border border-gray-200 rounded-lg p-2">
-                      <span className="text-gray-600">{query.text}</span>
+                    <div key={idx} className="backdrop-filter backdrop-blur-lg bg-gray-800/60 border border-gray-600 rounded-lg p-2">
+                      <span className="text-gray-300">{query.text}</span>
                     </div>
                   ))}
               </div>
@@ -67,7 +67,7 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
       </div>
       
       {!isExpanded && (
-        <div className="mt-2 text-sm text-gray-600">
+        <div className="mt-2 text-sm text-gray-300">
           {queries.length} queries generated across {['company', 'industry', 'financial', 'news'].length} categories
         </div>
       )}
