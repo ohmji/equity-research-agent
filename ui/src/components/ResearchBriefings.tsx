@@ -5,7 +5,9 @@ type BriefingStatus = {
   company: boolean;
   industry: boolean;
   financial: boolean;
+  fundamental: boolean;
   news: boolean;
+  
 };
 
 interface ResearchBriefingsProps {
@@ -50,7 +52,7 @@ const ResearchBriefings: React.FC<ResearchBriefingsProps> = ({
         isExpanded ? 'mt-6 max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-1">
-          {['company', 'industry', 'financial', 'news'].map((category) => (
+          {['company', 'industry', 'financial','fundamental', 'news'].map((category) => (
             <div 
               key={category} 
               className={`${cardGlassStyle} rounded-lg p-4 transition-all duration-500 ease-in-out relative ${

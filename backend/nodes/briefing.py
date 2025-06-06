@@ -143,6 +143,38 @@ Key requirements:
 4. Do not mention "no information found" or "no data available"
 5. Never use ### headers, only bullet points
 6. Provide only the briefing. Do not provide explanations or commentary.""",
+
+            'fundamental': f"""Create a focused fundamental analysis briefing for {company}, a {industry} company based in {hq_location}.
+Key requirements:
+1. Structure the output using these sections and bullet points:
+
+### Business Model
+* Explain how {company} makes money
+* Describe key revenue streams
+
+### Economic Moat
+* Identify any competitive advantages
+* Mention barriers to entry or network effects
+
+### Management & Governance
+* Summarize leadership background and incentives
+* Note any notable governance structures or risks
+
+### Market Opportunity
+* State size of addressable market
+* Highlight industry tailwinds
+
+### Strategic Direction
+* Summarize long-term initiatives
+* Highlight capital allocation strategy
+
+### Key Risks
+* Identify operational, regulatory, or ESG risks
+
+2. Each bullet must be a single, complete fact
+3. No paragraphs, only bullet points
+4. Do not include "no information found" or commentary
+5. Provide only the briefing""",
         }
         
         # Normalize docs to a list of (url, doc) tuples
@@ -234,7 +266,8 @@ Analyze the following documents and extract key information. Provide only the br
             'financial_data': ("financial", "financial_briefing"),
             'news_data': ("news", "news_briefing"),
             'industry_data': ("industry", "industry_briefing"),
-            'company_data': ("company", "company_briefing")
+            'company_data': ("company", "company_briefing"),
+            'fundamental_data': ("fundamental", "fundamental_briefing"),
         }
         
         briefings = {}

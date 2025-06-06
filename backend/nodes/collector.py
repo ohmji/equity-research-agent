@@ -25,7 +25,8 @@ class Collector:
             'financial_data': '💰 Financial',
             'news_data': '📰 News',
             'industry_data': '🏭 Industry',
-            'company_data': '🏢 Company'
+            'company_data': '🏢 Company',
+            'fundamental_data': '📊 Fundamental',
         }
         
         for data_field, label in research_types.items():

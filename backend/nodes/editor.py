@@ -68,6 +68,7 @@ class Editor:
             'company': 'company_briefing',
             'industry': 'industry_briefing',
             'financial': 'financial_briefing',
+            'fundamental': 'fundamental_briefing',
             'news': 'news_briefing'
         }
 
@@ -246,6 +247,9 @@ Strictly enforce this EXACT document structure:
 ## Financial Overview
 [Financial content with ### subsections]
 
+## Fundamental Overview
+[Fundamental content with ### subsections]
+
 ## News
 [News content with ### subsections]
 
@@ -306,6 +310,9 @@ Strictly enforce this EXACT document structure:
 ## Financial Overview
 [Financial content with ### subsections]
 
+## Fundamental Overview
+[Fundamental content with ### subsections]
+
 ## News
 [News content with ### subsections]
 
@@ -318,6 +325,7 @@ Critical rules:
    - ## Company Overview
    - ## Industry Overview
    - ## Financial Overview
+   - ## Fundamental Overview
    - ## News
    - ## References
 3. NO OTHER ## HEADERS ARE ALLOWED

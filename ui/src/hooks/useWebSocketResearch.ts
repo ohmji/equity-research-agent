@@ -443,6 +443,7 @@ export const useWebSocketResearch = (
                   company: false,
                   industry: false,
                   financial: false,
+                  fundamental: false,
                   news: false
                 }
               }));

@@ -166,6 +166,7 @@ class BaseResearcher:
             f"{company} overview {year}",
             f"{company} recent news {year}",
             f"{company} financial reports {year}",
+            f"{company} fundamental analysis {year}",
             f"{company} industry analysis {year}"
         ]
 
@@ -197,6 +198,8 @@ class BaseResearcher:
                 search_params["topic"] = "news"
             elif self.analyst_type == "financial_analyst":
                 search_params["topic"] = "finance"
+            elif self.analyst_type == "fundamental_analyst":
+                search_params["topic"] = "fundamental"
 
             results = await self.tavily_client.search(
                 query,
@@ -294,6 +297,8 @@ class BaseResearcher:
             search_params["topic"] = "news"
         elif self.analyst_type == "financial_analyst":
             search_params["topic"] = "finance"
+        elif self.analyst_type == "fundamental_analyst":
+            search_params["topic"] = "fundamental"
 
         if websocket_manager and job_id:
             await websocket_manager.send_status_update(

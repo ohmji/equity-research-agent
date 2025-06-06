@@ -51,6 +51,7 @@ function App() {
       company: false,
       industry: false,
       financial: false,
+      fundamental: false,
       news: false
     }
   });
@@ -129,6 +130,7 @@ function App() {
           company: false,
           industry: false,
           financial: false,
+          fundamental: false,
           news: false
         }
       });
