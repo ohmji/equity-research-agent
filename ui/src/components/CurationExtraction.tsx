@@ -5,6 +5,7 @@ type EnrichmentCounts = {
   company: { total: number; enriched: number };
   industry: { total: number; enriched: number };
   financial: { total: number; enriched: number };
+  valuation: { total: number; enriched: number };
   fundamental: { total: number; enriched: number };
   news: { total: number; enriched: number };
 };
@@ -53,7 +54,7 @@ const CurationExtraction: React.FC<CurationExtractionProps> = ({
         isExpanded ? 'mt-4 max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <div className="grid grid-cols-4 gap-4">
-          {['company', 'industry', 'financial','fundamental', 'news'].map((category) => {
+          {['company', 'industry', 'financial','fundamental','valuation', 'news'].map((category) => {
             const counts = enrichmentCounts?.[category as keyof EnrichmentCounts];
             return (
               <div key={category} className="backdrop-blur-2xl bg-gray-800/70 border border-gray-600 rounded-xl p-3 shadow-none">

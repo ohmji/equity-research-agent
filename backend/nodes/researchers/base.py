@@ -168,6 +168,7 @@ class BaseResearcher:
             f"{company} financial reports {year}",
             f"{company} fundamental analysis {year}",
             f"{company} industry analysis {year}"
+            f"{company} valuation metrics {year}"
         ]
 
     async def search_single_query(self, query: str, websocket_manager=None, job_id=None) -> Dict[str, Any]:
@@ -200,6 +201,8 @@ class BaseResearcher:
                 search_params["topic"] = "finance"
             elif self.analyst_type == "fundamental_analyst":
                 search_params["topic"] = "fundamental"
+            elif self.analyst_type == "valuation_analyst":
+                search_params["topic"] = "valuation"
 
             results = await self.tavily_client.search(
                 query,
@@ -299,6 +302,8 @@ class BaseResearcher:
             search_params["topic"] = "finance"
         elif self.analyst_type == "fundamental_analyst":
             search_params["topic"] = "fundamental"
+        elif self.analyst_type == "valuation_analyst":
+            search_params["topic"] = "valuation"
 
         if websocket_manager and job_id:
             await websocket_manager.send_status_update(

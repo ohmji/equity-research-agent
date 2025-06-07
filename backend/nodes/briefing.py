@@ -175,6 +175,33 @@ Key requirements:
 3. No paragraphs, only bullet points
 4. Do not include "no information found" or commentary
 5. Provide only the briefing""",
+            'valuation': f"""Create a focused valuation briefing for {company}, a {industry} company based in {hq_location}.
+Key requirements:
+1. Structure using these headers and bullet points:
+
+### Valuation Multiples
+* P/E ratio
+* Forward P/E
+* Price to Book
+* EV/EBITDA if available
+
+### Growth Assumptions
+* EPS or revenue growth rate if mentioned
+* Implied growth in DCF if applicable
+
+### DCF Estimate
+* Discount rate and growth assumptions
+* Estimated intrinsic value
+* Margin of safety if mentioned
+
+### Investment Insight
+* Summary of whether the stock is undervalued or overvalued
+* Supporting evidence from data
+
+2. Be specific with numbers where possible
+3. No paragraphs, only bullet points
+4. Do not include commentary or explanations
+5. Provide only the briefing.""",
         }
         
         # Normalize docs to a list of (url, doc) tuples
@@ -268,6 +295,7 @@ Analyze the following documents and extract key information. Provide only the br
             'industry_data': ("industry", "industry_briefing"),
             'company_data': ("company", "company_briefing"),
             'fundamental_data': ("fundamental", "fundamental_briefing"),
+            'valuation_data': ("valuation", "valuation_briefing"),
         }
         
         briefings = {}

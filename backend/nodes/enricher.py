@@ -141,7 +141,8 @@ class Enricher:
             'fundamental_data': ('📊 Fundamental', 'fundamental'),
             'news_data': ('📰 News', 'news'),
             'industry_data': ('🏭 Industry', 'industry'),
-            'company_data': ('🏢 Company', 'company')
+            'company_data': ('🏢 Company', 'company'),
+            'valuation_data': ('💵 Valuation', 'valuation')
         }
 
         # Create tasks for parallel processing

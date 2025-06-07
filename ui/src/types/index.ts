@@ -23,6 +23,7 @@ export type EnrichmentCounts = {
   company: { total: number; enriched: number };
   industry: { total: number; enriched: number };
   financial: { total: number; enriched: number };
+  valuation: { total: number; enriched: number };
   fundamental: { total: number; enriched: number }; 
   news: { total: number; enriched: number };
 };
@@ -47,6 +48,7 @@ export type ResearchState = {
     company: boolean;
     industry: boolean;
     financial: boolean;
+    valuation: boolean;
     news: boolean;
     fundamental: boolean;
   };

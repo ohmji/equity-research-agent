@@ -27,6 +27,7 @@ class Collector:
             'industry_data': '🏭 Industry',
             'company_data': '🏢 Company',
             'fundamental_data': '📊 Fundamental',
+            'valuation_data': '💵 Valuation',
         }
         
         for data_field, label in research_types.items():

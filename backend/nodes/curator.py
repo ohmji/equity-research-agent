@@ -123,7 +123,8 @@ class Curator:
             'fundamental_data': ('📊 Fundamental', 'fundamental'),
             'news_data': ('📰 News', 'news'),
             'industry_data': ('🏭 Industry', 'industry'),
-            'company_data': ('🏢 Company', 'company')
+            'company_data': ('🏢 Company', 'company'),
+            'valuation_data': ('💵 Valuation', 'valuation'),
         }
 
         # Create all evaluation tasks upfront
@@ -198,8 +199,8 @@ class Curator:
                 msg.append("  ⚠️ No documents met relevance threshold")
                 logger.info(f"No documents met relevance threshold for {doc_type}")
 
-            # Store curated documents in state
-            state[f'curated_{data_field}'] = relevant_docs
+            # Store curated documents in state, dynamically based on data_field
+            state[f"curated_{data_field}"] = relevant_docs
             
         # Process references using the references module
         top_reference_urls, reference_titles, reference_info = process_references_from_search_results(state)
@@ -227,6 +228,7 @@ class Curator:
                             "industry": doc_counts.get('industry_data', {"initial": 0, "kept": 0}),
                             "financial": doc_counts.get('financial_data', {"initial": 0, "kept": 0}),
                             "fundamental": doc_counts.get('fundamental_data', {"initial": 0, "kept": 0}),
+                            "valuation": doc_counts.get('valuation_data', {"initial": 0, "kept": 0}),
                             "news": doc_counts.get('news_data', {"initial": 0, "kept": 0})
                         }
                     }

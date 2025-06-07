@@ -37,7 +37,7 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
         isExpanded ? 'mt-4 max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <div className="grid grid-cols-2 gap-4">
-          {['company', 'industry', 'financial','fundamental', 'news'].map((category) => (
+          {['company', 'industry', 'financial','valuation','fundamental', 'news'].map((category) => (
             <div key={category} className={`${glassStyle} rounded-xl p-3`}>
               <h3 className="text-base font-medium text-white mb-3 capitalize">
                 {category.charAt(0).toUpperCase() + category.slice(1)} Queries
@@ -68,7 +68,7 @@ const ResearchQueries: React.FC<ResearchQueriesProps> = ({
       
       {!isExpanded && (
         <div className="mt-2 text-sm text-gray-300">
-          {queries.length} queries generated across {['company', 'industry', 'financial','fundamental', 'news'].length} categories
+          {queries.length} queries generated across {['company', 'industry', 'financial','valuation','fundamental', 'news'].length} categories
         </div>
       )}
     </div>

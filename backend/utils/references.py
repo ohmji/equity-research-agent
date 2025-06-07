@@ -128,7 +128,7 @@ def process_references_from_search_results(state: Dict[str, Any]) -> Tuple[List[
     all_top_references = []
     
     # Collect references with scores from all data types
-    data_types = ['curated_company_data', 'curated_industry_data', 'curated_financial_data', 'curated_news_data', 'curated_fundamental_data']
+    data_types = ['curated_company_data', 'curated_industry_data', 'curated_financial_data','curated_valuation_data', 'curated_news_data', 'curated_fundamental_data']
     
     # Log the start of reference processing
     logger.info("Starting to process references from search results")

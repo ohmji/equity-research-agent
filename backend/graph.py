@@ -16,7 +16,8 @@ from .nodes.researchers import (
     FinancialAnalyst,
     IndustryAnalyzer,
     NewsScanner,
-    FundamentalAnalyst
+    FundamentalAnalyst,
+    ValuationAnalyst
 )
 
 logger = logging.getLogger(__name__)
@@ -52,6 +53,7 @@ class Graph:
         self.industry_analyst = IndustryAnalyzer()
         self.company_analyst = CompanyAnalyzer()
         self.fundamental_analyst = FundamentalAnalyst()
+        self.valuation_analyst = ValuationAnalyst()
         self.collector = Collector()
         self.curator = Curator()
         self.enricher = Enricher()
@@ -69,6 +71,7 @@ class Graph:
         self.workflow.add_node("industry_analyst", self.industry_analyst.run)
         self.workflow.add_node("company_analyst", self.company_analyst.run)
         self.workflow.add_node("fundamental_analyst", self.fundamental_analyst.run)
+        self.workflow.add_node("valuation_analyst", self.valuation_analyst.run)
         self.workflow.add_node("collector", self.collector.run)
         self.workflow.add_node("curator", self.curator.run)
         self.workflow.add_node("enricher", self.enricher.run)
@@ -84,7 +87,8 @@ class Graph:
             "news_scanner",
             "industry_analyst", 
             "company_analyst",
-            "fundamental_analyst"
+            "fundamental_analyst",
+            "valuation_analyst"
         ]
 
         # Connect grounding to all research nodes
