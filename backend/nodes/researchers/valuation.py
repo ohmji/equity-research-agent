@@ -70,7 +70,7 @@ class ValuationAnalyst(BaseResearcher):
                 }
             )
         try:
-            stock = await asyncio.to_thread(yf.Ticker, ticker)
+            stock = await asyncio.to_thread(lambda: yf.Ticker(ticker))
             info = await asyncio.to_thread(lambda: stock.info)
             pe_ratio = info.get("trailingPE", "N/A")
             forward_pe = info.get("forwardPE", "N/A")
@@ -97,8 +97,6 @@ class ValuationAnalyst(BaseResearcher):
                 f"• Estimated DCF Value (GGM): {estimated_value}"
             )
 
-            messages.append(AIMessage(content=summary))
-            state["messages"] = messages
             valuation_data = {
                 "ticker": ticker,
                 "pe_ratio": pe_ratio,
@@ -111,6 +109,9 @@ class ValuationAnalyst(BaseResearcher):
                 "return_on_equity": return_on_equity,
                 "estimated_dcf": estimated_value
             }
+            messages.append(AIMessage(content=summary))
+            state["messages"] = messages
+            state["valuation_data_raw"] = valuation_data
 
             if websocket_manager and job_id:
                 await websocket_manager.send_status_update(
