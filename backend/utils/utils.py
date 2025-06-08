@@ -1,3 +1,12 @@
+import re
+def remove_visual_noise(text: str) -> str:
+    """Remove emoji, visual symbols, and sentiment markers like ✅, ⚪️, ❌."""
+    emoji_pattern = re.compile(
+        "["
+        "]+|"
+        "[✅⚪️❌]"               # explicitly match these sentiment icons
+    )
+    return emoji_pattern.sub(r'', text)
 import logging
 import os
 import re
@@ -51,6 +60,10 @@ def generate_pdf_from_md(markdown_content: str, output_pdf) -> None:
             
         markdown_content = markdown_content.replace('\r\n', '\n')  # Normalize Windows line endings
         markdown_content = markdown_content.replace('\\n', '\n')   # Convert literal \n to newlines
+        markdown_content = remove_visual_noise(markdown_content)
+        # Color sentiment tags and individual sentiment words (full tag prioritized)
+        markdown_content = re.sub(r'\(Sentiment: Positive(, Score: [0-9.]+)?\)', r'<font color="green">\g<0></font>', markdown_content)
+        markdown_content = re.sub(r'\(Sentiment: Negative(, Score: [0-9.]+)?\)', r'<font color="red">\g<0></font>', markdown_content)
         
         # Create the PDF document
         doc = SimpleDocTemplate(
