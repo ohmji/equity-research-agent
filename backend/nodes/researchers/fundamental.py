@@ -34,15 +34,13 @@ class FundamentalAnalyst(BaseResearcher):
         queries = await self.generate_queries(
             state,
             """
-            Generate queries on the fundamental analysis of {company} operating in {industry}, such as:
-            - Business model and primary revenue streams of {company}
-            - Sources of competitive advantage / economic moat for {company}
-            - Management team background, incentives and governance
-            - Size of addressable market and industry growth drivers
-            - {company}'s market share versus key competitors
-            - Long‑term strategic initiatives and capital allocation policy
-            - Key operational or regulatory risks facing {company}
-            - ESG or sustainability issues relevant to {company}
+            Generate queries for a qualitative fundamental analysis of {company} in the {industry} industry. Focus on:
+            - Business model and key revenue sources
+            - Competitive advantages and market position
+            - Management background and governance
+            - Market size and industry growth trends
+            - Strategic plans and capital allocation
+            - Key risks and ESG issues
             """,
         )
 

@@ -17,11 +17,13 @@ class CompanyAnalyzer(BaseResearcher):
         
         # Generate search queries using LLM
         queries = await self.generate_queries(state, """
-        Generate queries on the company fundamentals of {company} in the {industry} industry such as:
-        - Core products and services
-        - Company history and milestones
-        - Leadership team
-        - Business model and strategy
+        Generate queries for a qualitative fundamental analysis of {company} in the {industry} industry. Focus on:
+        - Business model and key revenue sources
+        - Competitive advantages and market position
+        - Management background and governance
+        - Market size and industry growth trends
+        - Strategic plans and capital allocation
+        - Key risks and ESG issues
         """)
 
         # Add message to show subqueries with emojis
@@ -94,4 +96,4 @@ class CompanyAnalyzer(BaseResearcher):
         }
 
     async def run(self, state: ResearchState) -> Dict[str, Any]:
-        return await self.analyze(state) 
+        return await self.analyze(state)
