@@ -233,6 +233,15 @@ Create a comprehensive and focused report on {company}, a {industry} company hea
 2. Maintains important details from each section
 3. Logically organizes information and removes transitional commentary / explanations
 4. Uses clear section headers and structure
+5. If sentiment is mentioned, summarize it in a single sentence and conclude the section with "(Sentiment: Positive)", "(Sentiment: Neutral)", or "(Sentiment: Negative)"
+6. For the News section, strictly preserve bullet point format and sentiment tags such as:  
+   * Apple announced XYZ (Sentiment: Positive, Score: 0.95) ✅  
+   Do not reword or remove emojis or sentiment indicators
+7. Group news bullet points under logical subcategories such as:  
+   - Major Announcements  
+   - Partnerships  
+   - Recognition  
+   Use only bold text (e.g., **Major Announcements**) as group headers, do not use ## or ### headers
 
 Formatting rules:
 Strictly enforce this EXACT document structure:

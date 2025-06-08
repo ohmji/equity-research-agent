@@ -1,7 +1,8 @@
 from typing import Any, Dict
+from transformers import pipeline
 
 from langchain_core.messages import AIMessage
-
+import logging 
 from ...classes import ResearchState
 from .base import BaseResearcher
 
@@ -10,6 +11,8 @@ class NewsScanner(BaseResearcher):
     def __init__(self) -> None:
         super().__init__()
         self.analyst_type = "news_analyzer"
+        self.pretrained_model = 'ahmedrachid/FinancialBERT-Sentiment-Analysis'
+        self.sentiment_pipeline = pipeline("sentiment-analysis", model=self.pretrained_model)
 
     async def analyze(self, state: ResearchState) -> Dict[str, Any]:
         company = state.get('company', 'Unknown Company')
@@ -29,7 +32,7 @@ class NewsScanner(BaseResearcher):
         state['messages'] = messages
         
         news_data = {}
-        
+    
         # If we have site_scrape data, include it first
         if site_scrape := state.get('site_scrape'):
             msg.append("\n📊 Including site scrape data in company analysis...")
@@ -39,7 +42,7 @@ class NewsScanner(BaseResearcher):
                 'raw_content': site_scrape,
                 'query': f'News and announcements about {company}'  # Add a default query for site scrape
             }
-        
+
         # Perform additional research with recent time filter
         try:
             # Store documents with their respective queries
@@ -49,7 +52,10 @@ class NewsScanner(BaseResearcher):
                     for url, doc in documents.items():
                         doc['query'] = query  # Associate each document with its query
                         news_data[url] = doc
-            
+                        overall_result = self.sentiment_pipeline(news_data[url]['content'][:512])[0]
+                        overall_sentiment = f"Sentiment: {overall_result['label']} ({overall_result['score']:.2f})"
+                        news_data[url]['sentiment'] = overall_sentiment
+
             msg.append(f"\n✓ Found {len(news_data)} documents")
             if websocket_manager := state.get('websocket_manager'):
                 if job_id := state.get('job_id'):

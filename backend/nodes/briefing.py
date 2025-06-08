@@ -125,24 +125,17 @@ Key requirements:
             'news': f"""Create a focused news briefing for {company}, a {industry} company based in {hq_location}.
 Key requirements:
 1. Structure into these categories using bullet points:
+* Major Announcements: product/service launches, new initiatives
+* Partnerships: integrations, collaborations
+* Recognition: awards, press coverage
+* Sentiment Summary: overall tone and sentiment of recent news (e.g., Positive, Neutral, Negative) with supporting evidence
 
-### Major Announcements
-* Product / service launches
-* New initiatives
-
-### Partnerships
-* Integrations
-* Collaborations
-
-### Recognition
-* Awards
-* Press coverage
-
-2. Sort newest to oldest
-3. One event per bullet point
-4. Do not mention "no information found" or "no data available"
-5. Never use ### headers, only bullet points
-6. Provide only the briefing. Do not provide explanations or commentary.""",
+2. Each bullet point must end with a sentiment tag in this format: ✅ (Sentiment: Positive, Score: 0.95), ⚪️ (Sentiment: Neutral, Score: 0.75), or ❌ (Sentiment: Negative, Score: 0.60)
+3. Sort newest to oldest
+4. One event per bullet point
+5. Use only bullet points, never headers
+6. Begin Sentiment Summary with: "Overall sentiment: [Positive|Neutral|Negative]."
+7. Provide only the briefing. Do not provide explanations or commentary.""",
 
             'fundamental': f"""Create a focused fundamental analysis briefing for {company}, a {industry} company based in {hq_location}.
 Key requirements:
@@ -220,8 +213,11 @@ Key requirements:
         for _ , doc in sorted_items:
             title = doc.get('title', '')
             content = doc.get('raw_content') or doc.get('content', '')
+            sentiment = doc.get('sentiment', '')
             if len(content) > self.max_doc_length:
                 content = content[:self.max_doc_length] + "... [content truncated]"
+            if sentiment:
+                title += f"\n\n({sentiment})"
             doc_entry = f"Title: {title}\n\nContent: {content}"
             if total_length + len(doc_entry) < 120000:  # Keep under limit
                 doc_texts.append(doc_entry)

@@ -66,12 +66,12 @@ class Graph:
         
         # Add nodes with their respective processing functions
         self.workflow.add_node("grounding", self.ground.run)
-        self.workflow.add_node("financial_analyst", self.financial_analyst.run)
+        # self.workflow.add_node("financial_analyst", self.financial_analyst.run)
         self.workflow.add_node("news_scanner", self.news_scanner.run)
-        self.workflow.add_node("industry_analyst", self.industry_analyst.run)
-        self.workflow.add_node("company_analyst", self.company_analyst.run)
-        self.workflow.add_node("fundamental_analyst", self.fundamental_analyst.run)
-        self.workflow.add_node("valuation_analyst", self.valuation_analyst.run)
+        # self.workflow.add_node("industry_analyst", self.industry_analyst.run)
+        # self.workflow.add_node("company_analyst", self.company_analyst.run)
+        # self.workflow.add_node("fundamental_analyst", self.fundamental_analyst.run)
+        # self.workflow.add_node("valuation_analyst", self.valuation_analyst.run)
         self.workflow.add_node("collector", self.collector.run)
         self.workflow.add_node("curator", self.curator.run)
         self.workflow.add_node("enricher", self.enricher.run)
@@ -83,12 +83,12 @@ class Graph:
         self.workflow.set_finish_point("editor")
         
         research_nodes = [
-            "financial_analyst", 
+            # "financial_analyst", 
             "news_scanner",
-            "industry_analyst", 
-            "company_analyst",
-            "fundamental_analyst",
-            "valuation_analyst"
+            # "industry_analyst", 
+            # "company_analyst",
+            # "fundamental_analyst",
+            # "valuation_analyst"
         ]
 
         # Connect grounding to all research nodes
