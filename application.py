@@ -29,7 +29,7 @@ logger.setLevel(logging.INFO)
 console_handler = logging.StreamHandler()
 logger.addHandler(console_handler)
 
-app = FastAPI(title="Tavily Company Research API")
+app = FastAPI(title="Tavily Equity Research API")
 
 app.add_middleware(
     CORSMiddleware,

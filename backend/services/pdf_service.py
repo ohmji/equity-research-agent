@@ -42,7 +42,7 @@ class PDFService:
                 if first_line.startswith('# '):
                     company_name = first_line[2:].strip()
                 else:
-                    company_name = "Company Research"
+                    company_name = "Equity Research"
             
             # Generate the output filename
             pdf_filename = self._generate_pdf_filename(company_name)
