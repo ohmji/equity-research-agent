@@ -96,4 +96,6 @@ Progress updates are sent via WebSocket (`websocket_manager`) with:
 
 ## 🙏 Acknowledgements
 
-Additional capabilities such as sentiment analysis were added to enhance the report generation.
+This project was inspired by and adapted from [company-research-agent](https://github.com/guy-hartstein/company-research-agent) by [Guy Hartstein](https://github.com/guy-hartstein). We thank the original author for the excellent foundation and contributions to the open-source research tooling ecosystem.
+
+Licensed and modified under the same terms as the original [MIT License](https://github.com/guy-hartstein/company-research-agent/blob/main/LICENSE).
