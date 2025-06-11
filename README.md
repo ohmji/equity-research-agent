@@ -98,4 +98,4 @@ Progress updates are sent via WebSocket (`websocket_manager`) with:
 
 This project was inspired by and adapted from [company-research-agent](https://github.com/guy-hartstein/company-research-agent) by [Guy Hartstein](https://github.com/guy-hartstein). We thank the original author for the excellent foundation and contributions to the open-source research tooling ecosystem.
 
-Licensed and modified under the same terms as the original [MIT License](https://github.com/guy-hartstein/company-research-agent/blob/main/LICENSE).
+Licensed and modified under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
